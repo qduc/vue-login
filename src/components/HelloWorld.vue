@@ -80,7 +80,7 @@
         </a>
       </li>
     </ul>
-    <router-link to="/login" tag="h3"><a>Login</a></router-link>
+    <router-link :to="{name: 'Login'}" tag="h3"><a>Login</a></router-link>
   </div>
 </template>
 

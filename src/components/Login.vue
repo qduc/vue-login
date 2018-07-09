@@ -1,6 +1,7 @@
 <template>
     <form @submit.prevent="onSubmit" class="form-signin">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <p class="text-danger">{{ message }}</p>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input v-model="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
@@ -19,6 +20,7 @@
 export default {
   name: 'Login',
   data: () => ({
+    message: '',
     email: '',
     password: ''
   }),
@@ -26,6 +28,14 @@ export default {
     onSubmit: function () {
       console.log(this)
       this.$store.dispatch('login', {email: this.email, password: this.password})
+        .then(() => {
+          console.log('Promise resolved')
+          this.$router.push('/Home')
+        })
+        .catch(() => {
+          console.log('Promise reject')
+          this.message = 'Login failed'
+        })
     }
   }
 }
