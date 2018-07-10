@@ -2,16 +2,20 @@
   <div>
     <h1>Home</h1>
     <p>Token: {{ token }}</p>
+    <p>User list: {{ users }}</p>
   </div>
 </template>
 
 <script>
-import store from '../store'
 export default {
   name: 'Home',
+  data: () => ({
+    users: []
+  }),
   computed: {
     token () {
-      return store.state.apiToken
+      console.log(this.$store)
+      return this.$store.state.auth.apiToken
     }
   }
 }

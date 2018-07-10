@@ -4,29 +4,17 @@
     <ul class="sidebar-nav">
       <li class="sidebar-brand">
         <a href="#">
-          Start Bootstrap
+          Hito
         </a>
       </li>
       <li>
-        <a href="#">Dashboard</a>
+        <router-link to="/home">Home</router-link>
       </li>
       <li>
-        <a href="#">Shortcuts</a>
+        <router-link to="/login">Login</router-link>
       </li>
       <li>
-        <a href="#">Overview</a>
-      </li>
-      <li>
-        <a href="#">Events</a>
-      </li>
-      <li>
-        <a href="#">About</a>
-      </li>
-      <li>
-        <a href="#">Services</a>
-      </li>
-      <li>
-        <a href="#">Contact</a>
+        <a href="#" @click="logout">Logout</a>
       </li>
     </ul>
   </div>
@@ -35,7 +23,15 @@
 
 <script>
 export default {
-  name: 'Sidebar'
+  name: 'Sidebar',
+  methods: {
+    logout () {
+      this.$store.dispatch('logout')
+        .then(() => {
+          this.$router.push('/login')
+        })
+    }
+  }
 }
 </script>
 
