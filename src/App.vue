@@ -14,26 +14,10 @@
 
 <script>
 import sidebar from './components/Sidebar'
-import * as browser from './helpers/browser'
 
 export default {
   name: 'App',
   created: function () {
-    // // Check if browser support localStorage
-    // if (browser.storageAvailable('localStorage')) {
-    //   console.log('Storage support')
-    //   this.$store.commit('localStorage', true)
-    // } else {
-    //   console.log('No localStorage :(')
-    //   this.$store.commit('localStorage', false)
-    // }
-    //
-    // // Check token available
-    // if (this.$store.apiToken) {
-    //   this.$router.push('/home')
-    // } else {
-    //   this.$router.push('/login')
-    // }
   },
   components: {
     sidebar
